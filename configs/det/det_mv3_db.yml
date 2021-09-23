@@ -1,5 +1,5 @@
 Global:
-  use_gpu: true
+  use_gpu: false
   epoch_num: 1200
   log_smooth_window: 20
   print_batch_step: 10
@@ -43,7 +43,7 @@ Optimizer:
   beta1: 0.9
   beta2: 0.999
   lr:
-    learning_rate: 0.001
+    learning_rate: 0.00025
   regularizer:
     name: 'L2'
     factor: 0
@@ -62,9 +62,9 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: ./train_data/icdar2015/text_localization/
+    data_dir: /paddle/datasets/icdar2015/text_localization/
     label_file_list:
-      - ./train_data/icdar2015/text_localization/train_icdar2015_label.txt
+      - /paddle/datasets/icdar2015/text_localization/train_icdar2015_label.txt
     ratio_list: [1.0]
     transforms:
       - DecodeImage: # load image
@@ -105,9 +105,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: ./train_data/icdar2015/text_localization/
+    data_dir: /paddle/datasets/icdar2015/text_localization/
     label_file_list:
-      - ./train_data/icdar2015/text_localization/test_icdar2015_label.txt
+      - /paddle/datasets/icdar2015/text_localization/test_icdar2015_label.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
@@ -127,5 +127,5 @@ Eval:
     shuffle: False
     drop_last: False
     batch_size_per_card: 1 # must be 1
-    num_workers: 8
+    num_workers: 1
     use_shared_memory: False

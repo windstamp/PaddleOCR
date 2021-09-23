@@ -1,5 +1,5 @@
 Global:
-  use_gpu: true
+  use_gpu: false
   epoch_num: 100
   log_smooth_window: 20
   print_batch_step: 10
@@ -37,7 +37,7 @@ Optimizer:
   beta2: 0.999
   lr:
     name: Cosine
-    learning_rate: 0.001
+    learning_rate: 0.00025
   regularizer:
     name: 'L2'
     factor: 0
@@ -52,9 +52,9 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: ./train_data/cls
+    data_dir: /paddle/datasets/cls
     label_file_list:
-      - ./train_data/cls/train.txt
+      - /paddle/datasets/cls/train.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
@@ -76,9 +76,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: ./train_data/cls
+    data_dir: /paddle/datasets/cls
     label_file_list:
-      - ./train_data/cls/test.txt
+      - /paddle/datasets/cls/test.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
@@ -92,4 +92,4 @@ Eval:
     shuffle: False
     drop_last: False
     batch_size_per_card: 512
-    num_workers: 4
+    num_workers: 1

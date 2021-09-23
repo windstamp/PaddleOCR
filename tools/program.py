@@ -403,7 +403,8 @@ def preprocess(is_train=False):
         'CLS', 'PGNet', 'Distillation', 'NRTR', 'TableAttn'
     ]
 
-    device = 'gpu:{}'.format(dist.ParallelEnv().dev_id) if use_gpu else 'cpu'
+    # device = 'gpu:{}'.format(dist.ParallelEnv().dev_id) if use_gpu else 'cpu'
+    device = 'npu:0'
     device = paddle.set_device(device)
 
     config['Global']['distributed'] = dist.get_world_size() != 1

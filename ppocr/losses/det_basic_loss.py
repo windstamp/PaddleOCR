@@ -128,7 +128,7 @@ class DiceLoss(nn.Layer):
 
         union = paddle.sum(pred * mask) + paddle.sum(gt * mask) + self.eps
         loss = 1 - 2.0 * intersection / union
-        assert loss <= 1
+        # assert loss <= 1
         return loss
 
 

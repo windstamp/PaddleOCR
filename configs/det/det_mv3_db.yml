@@ -99,7 +99,7 @@ Train:
     shuffle: True
     drop_last: False
     batch_size_per_card: 16
-    num_workers: 8
+    num_workers: 0
     use_shared_memory: False
 
 Eval:
@@ -127,5 +127,5 @@ Eval:
     shuffle: False
     drop_last: False
     batch_size_per_card: 1 # must be 1
-    num_workers: 1
+    num_workers: 0
     use_shared_memory: False

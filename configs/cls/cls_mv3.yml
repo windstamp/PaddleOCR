@@ -37,7 +37,7 @@ Optimizer:
   beta2: 0.999
   lr:
     name: Cosine
-    learning_rate: 0.001
+    learning_rate: 0.000125
   regularizer:
     name: 'L2'
     factor: 0
@@ -52,9 +52,9 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: ./train_data/cls
+    data_dir: /paddle/dataset/cls
     label_file_list:
-      - ./train_data/cls/train.txt
+      - /paddle/dataset/cls/train.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
@@ -69,16 +69,16 @@ Train:
           keep_keys: ['image', 'label'] # dataloader will return list in this order
   loader:
     shuffle: True
-    batch_size_per_card: 512
+    batch_size_per_card: 256
     drop_last: True
-    num_workers: 8
+    num_workers: 0
 
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: ./train_data/cls
+    data_dir: /paddle/dataset/cls
     label_file_list:
-      - ./train_data/cls/test.txt
+      - /paddle/dataset/cls/new_test.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
@@ -91,5 +91,5 @@ Eval:
   loader:
     shuffle: False
     drop_last: False
-    batch_size_per_card: 512
-    num_workers: 4
+    batch_size_per_card: 256
+    num_workers: 0

@@ -37,7 +37,7 @@ Optimizer:
   beta2: 0.999
   lr:
     name: Cosine
-    learning_rate: 0.00025
+    learning_rate: 0.000125
   regularizer:
     name: 'L2'
     factor: 0
@@ -78,7 +78,7 @@ Eval:
     name: SimpleDataSet
     data_dir: /paddle/datasets/cls
     label_file_list:
-      - /paddle/datasets/cls/test.txt
+      - /paddle/datasets/cls/new_test.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR

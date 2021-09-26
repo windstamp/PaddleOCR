@@ -29,7 +29,7 @@ class MobileNetV3(nn.Layer):
                  **kwargs):
         super(MobileNetV3, self).__init__()
         if small_stride is None:
-            small_stride = [1, 1, 1, 1]
+            small_stride = [2, 2, 2, 2]
         if large_stride is None:
             large_stride = [1, 2, 2, 2]
 
